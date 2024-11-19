@@ -28,16 +28,18 @@ def main():
         screen.blit(bg_flip, [-x+4800, 0])
 
         screen.blit(kk_img, kk_rct)
+        mv_x = 0
+        mv_y = 0
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(1, 0)
+            mv_x = 1
         else:
-            kk_rct.move_ip(-1, 0)
+            mv_x = -1
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0, -1)
+            mv_y = 1
         elif key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, 1)
+            mv_y = -1
         pg.display.update()
-         
+        kk_rct.move_ip(mv_x, mv_y) 
         tmr += 1
         clock.tick(200)
 
